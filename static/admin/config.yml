@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: uni51/hugo_blog_cleanwhite  # GitHubのリポジトリ　「https://github.com/xxxx/yyyy」の「xxxx/yyyy」の部分
+  branch: master
+
+publish_mode: editorial_workflow
+
+media_folder: "static/img" # CMSから画像アップロードした際の保存先
+public_folder: "/img" # 公開したときの画像フォルダのパス
+
+collections:
+ - name: "post" # 管理画面のパスで使う　例：/admin/collections/post
+   label: "Post" # 管理画面のサイドバーで使用
+   folder: "content/post" # Markdownの保存ディレクトリ
+   create: true # 新しいページの作成可否
+   slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Markdownのファイル名　例：YYYY-MM-DD-slug.md
+   fields: # ページ作成画面の項目
+   - {label: "タイトル", name: "title", widget: "string"}
+   - {label: "サブタイトル", name: "subtitle", widget: "string"}
+   - {label: "説明", name: "description", widget: "text", required: false}
+   - {label: "記事概要", name: "excerpt", widget: "text", required: false}
+   - {label: "日付", name: "date", widget: "datetime"}
+   - {label: "作成者", name: "author", widget: "string"}
+   - {label: "画像", name: "image", widget: "image", required: false}
+   - {label: "カテゴリ", name: "categories", widget: "list", required: false}
+   - {label: "タグ", name: "tags", widget: "list", required: false}
+   - {label: "本文", name: "body", widget: "markdown"}
